@@ -1,4 +1,4 @@
-### Description src="http://twemoji.maxcdn.com/36x36/1f4bb.png"
+### Description 
 Our _printf function has as prototype :
 
 int _printf(const char *format, ...);
