@@ -9,8 +9,8 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int i = 0, count = 0, fun = 0;
 
-	if (!format || (format[0]== '%' & format[1] = '\0'))
-	return (0);
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+	return (-1);
 	va_start(arg, format);
 	while (*(format + i) && format)
 	{
@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		if (*(format + i) == '%')
 		{
 			fun = check_char_func(*(format + (i + 1)), arg);
-			if (fun != 1)
+			if (fun != 0)
 			{
 				count = count + fun;
 				i = i + 2;
