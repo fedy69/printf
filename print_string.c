@@ -10,7 +10,7 @@ int print_character(va_list arg)
 
 	ch = va_arg(arg, int);
 	_putchar(ch);
-	return (1);
+	return (0);
 }
 /**
  *print_string - print a string
@@ -42,5 +42,5 @@ int print_percent(va_list arg)
 	(void)arg;
 
 	_putchar('%');
-	return (0);
+	return (1);
 }
