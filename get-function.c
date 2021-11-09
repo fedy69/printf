@@ -7,7 +7,7 @@
  */
 int check_char_func(const char s, va_list ap)
 {
-	int i = 0, count = 0;
+	int i = 0, count == 0;
 	printf_t ch[] = {
 		{'c', print_character},
 		{'s', print_string},
@@ -21,7 +21,7 @@ int check_char_func(const char s, va_list ap)
 	};
 	while (ch[i]c != 0)
 	{
-		if (ch[i].c = s)
+		if (ch[i].c  == s)
 		{
 			count = count + ch[i].fun(ap);
 			return (count);
