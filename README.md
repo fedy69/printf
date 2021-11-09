@@ -1,4 +1,4 @@
-### Description :tw-1f4bb:
+### Description <src="http://twemoji.maxcdn.com/36x36/1f4bb.png">
 Our _printf function has as prototype :
 
 int _printf(const char *format, ...);
