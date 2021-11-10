@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 /**
  * check_char_func - check depending on separator
  * @s: char
