@@ -70,7 +70,7 @@ All our files are tested on Ubuntu 14.04 LTS in a VirtualBox on it via Vagrant(2
 | _putchar.c | a file that contain putchar config |
 | main.h |  contain all prototypes |
 |  _printf.c| a file contain printf functions |
-| print_func.c | a file that contain integer and decimal numbers(r, |
+| print_func.c | a file that contain integer and decimal numbers |
 | print_string.c | a file that contain string/number/percent functions |
 | function.c| a file that contain printf format |
 
