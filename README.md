@@ -69,10 +69,10 @@ All our files are tested on Ubuntu 14.04 LTS in a VirtualBox on it via Vagrant(2
 | --- | --- |
 | _putchar.c | a file that contain putchar config |
 | main.h |  contain all prototypes |
-| get-function.c | a file contain printf functions |
-| print_number.c | a file that contain integer and decimal numbers |
+|  _printf.c| a file contain printf functions |
+| print_func.c | a file that contain integer and decimal numbers(r, |
 | print_string.c | a file that contain string/number/percent functions |
-| _printf.c | a file that contain printf format |
+| function.c| a file that contain printf format |
 
 
 
