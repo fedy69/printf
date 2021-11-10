@@ -1,79 +1,34 @@
-.TH man 3 "11/09/2021"  "_printf man page"
-.Sh NAME
-.B _printf
-- Formatted output conversion recreated printf C standard library function.
-
-.SH SYNOPSIS
-.B #include "main.h"
-.B int _printf(const char *
-.I format
-.B , ...)
+.TH man 3 "11/10/2021"  "_printf man page"
+.SH name 
+printf
+.SH DESCRIPTION
+_printf is a diluted version of the original printf  to practice the skills aquired during the first 2 months at holberton school
+.SH Synopsis
+ printf FORMAT [ARGUMENT]...
+printf OPTION
 
 .SH DESCRIPTION
 .B _printf
-The functions in _printf() writes output according to a format.
+- The printf() function sends a formatted string to the standard output.This string can display formatted variables and special control characters.
 
 .SH Format
 .TP
 .BR c
-The int argument is converted to an unsigned char, then the resulting character is written.
+- This requires an argument of type int and prints it as a character which normally has a value between 0 to 255.
+
+.TP
+.BR s
+- This format specifier is implemented for representing strings. This is used in printf() function for printing a string stored in the character array variable. The const char * argument is expected to be a pointer to an array of character type (pointer to a string).
 
 .TP
 .BR b
-The int argument is converted to a binary.
+- The int argument is converted to a binary.
 
 .TP
-.B s
-The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to a terminating null byte, but do ot include the terminating null byte.
-
-.TP
-.B d, i
-The int argument is converted to signed decimal.
-
-.TP
-.B r
-Prints a string in reverse.
-
-.TP
-.B R
-Prints a string converted to rot13.
-
-.TP
-.B %
-A '%' is written but no argument is converted. The complete version specification is '%%'.
-
-.SH Example:
-To use the _printf function you simply need to compile all files .c including the header main.h with a main function.
-
-.B main.c
-#include "main.h"
-
-int main(void)
-   {
-             _printf("let's print something using our function!");
-
-   return (0);
-    }
-
-.B Compilation:
-       $ gcc *.c -o
-
-.B Output:
-let's print something using our function!
-
-.SH Return Value
-In case of success _printf returns an integer value, wich is the total number of printed characters.
-Otherwise, _printf returns -1 (error).
-
-.SH NOTES
-Actualy, the program don't handle the flag characters, field width, precision nor the length modifiers.
-
-.SH SEE ALSO
-.BR man printf (3)
+.BR d, i
+- The int argument is converted to signed decimal.
 
 
-.SH CREDITS
-.PP
 This man page is created as a project to recreate the C standard ibrary pintf for Holberton school.
 https://www.holbertonschool.com/tn/en
 
