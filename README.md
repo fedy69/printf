@@ -4,8 +4,8 @@ Our _printf function has as prototype :
 int _printf(const char *format, ...);
 
 
-printf in c programming leanguage, printf() function is used to print ("character,string,float,integer,octal,and hexadecimal values") onto the output screen.
-[more info](https://en.wikipedia.org/wiki/Printf_format_string "more info")
+printf in c programming language, printf() function is used to print ("character,string,float,integer,octal,and hexadecimal values") onto the output screen.
+
 
    ###  C language standard functions allowed: 👋 
 
