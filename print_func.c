@@ -1,95 +1,9 @@
 #include "main.h"
 /**
- * print_rev_string - print reverse string
- *@arg: argument of type va_list
- * Return: count
- */
-int print_rev_string(va_list arg)
-{
-	char *str;
-	int i = 0, count = 0, len;
-
-	str = va_arg(arg, char*);
-	if (str == NULL)
-		str = "(llun(";
-	for (i = 0; str[i]; i++)
-		;
-	len = i - 1;
-	while (len >= 0)
-	{
-		_putchar(str[len]);
-		len--;
-		count++;
-	}
-	return (count);
-}
-/**
- * print_integer -print number putchar
- * @arg: argument of type va_list
- * Return: count
- */
-int print_integer(va_list arg)
-{
-	int count = 0, rest = 1;
-	unsigned int x;
-	int n = va_arg(arg, int);
-
-	x = n;
-	if (n < 0)
-	{
-		_putchar('-');
-		x = -x;
-		count++;
-	}
-	while ((x / rest) > 9)
-	{
-		rest = rest * 10;
-	}
-	while (rest > 0)
-	{
-		_putchar(x / rest + '0');
-		x = (x % rest);
-		rest = rest / 10;
-		count++;
-	}
-	return (count);
-}
-/**
- * print_rot13 - print rot string
- * @arg: argument of type va_list
- * Return:str
- */
-int print_rot13(va_list arg)
-{
-	char *str;
-	int i, j;
-	char ch1[] = "ABCDEFGHIJKLMabcdefghijklmNOPQRSTUVWXYZnopqrstuvwxyz";
-	char ch2[] = "NOPQRSTUVWXYZnopqrstuvwxyzABCDEFGHIJKLMabcdefghijklm";
-
-	str = va_arg(arg, char *);
-	if (str == NULL)
-	{
-		str = "(ahyy)";
-	}
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		for (j = 0; j <= 52; j++)
-		{
-			if (str[i] == ch1[j])
-			{
-				_putchar(ch2[j]);
-				break;
-			}
-		}
-		if (j == 53)
-		_putchar(str[i]);
-	}
-	return (i);
-}
-/**
- * print_binary - print binary
- * @arg: argument of type va_list
- * Return: count
+ * p_char - prints a character
+ * @arg: The character to print
+ *
+ * Return: 1
  */
 int p_char(va_list arg)
 {
@@ -115,4 +29,88 @@ int p_string(va_list arg)
 		i++;
 	}
 	return (i);
+}
+
+/**
+ *p_percent - print percent
+ *@arg: argument of type of va_list
+ * Return: integer
+ */
+int p_percent(va_list arg)
+{
+	(void)arg;
+
+	_putchar('%');
+	return (1);
+}
+
+/**
+ * p_int - function that prints an integer with helper function.
+ * @arg: The string to print
+ *
+ * Return: counter
+ *
+ */
+int p_int(va_list arg)
+{
+	int n = va_arg(arg, int);
+	int count = 0, rest = 1;
+	unsigned int x;
+
+	x = n;
+	if (n < 0)
+	{
+		_putchar('-');
+		x = -x;
+		count++;
+	}
+
+	while ((x / rest) > 9)
+	{
+		rest = rest * 10;
+	}
+	while (rest > 0)
+	{
+		_putchar(x / rest + '0');
+		x = (x % rest);
+		rest = rest / 10;
+		count++;
+	}
+	return (count);
+}
+/**
+ * p_binary - convert an integer to binary (base 2).
+ *
+ * @arg: the list of arguments.
+ *
+ *  Return: number of printed element.
+ */
+int p_binary(va_list arg)
+{
+	unsigned int binary[32];
+	int i = 0;
+	unsigned int n = 0, count = 0;
+
+	n = va_arg(arg, unsigned int);
+
+	if (n <= 1)
+	{
+		_putchar(n + '0');
+		count++;
+	}
+	else
+	{
+		while (n > 0)
+		{
+			binary[i] = n % 2;
+			n = n / 2;
+			i++;
+		}
+		for (i = i - 1; i >= 0; i--)
+		{
+			_putchar(binary[i] + '0');
+			count++;
+		}
+	}
+	return (count);
 }
