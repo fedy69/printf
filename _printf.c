@@ -1,41 +1,70 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdarg.h>
 /**
- * _printf - print all (printf reecreation)
- * @format: format specifier
- * Return: count
+ * _printf - printing function.
+ * @format: liste of arguments
+ * Return: Always 0.
  */
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int i = 0, count = 0, fun = 0;
+	unsigned int i = 0, j = 0;
+
+	va_start(arg, format);
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
-	return (-1);
-	va_start(arg, format);
-	while (*(format + i) && format)
+		return (-1);
+	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
-		if (*(format + i) != '%')
+		if (format[i] == '%')
 		{
-			_putchar (*(format + i));
-			count++;
-		}
-		if (*(format + i) == '%')
-		{
-			fun = pick_function(*(format + (i + 1)), arg);
-			if (fun != 0)
+			if (format[i + 1] == '%')
 			{
-				count = count + fun;
-				i = i + 2;
-				continue;
+				_putchar('%');
+				j++;
+				i++;
 			}
-			if (*(format + (i + 1)) == '\0')
+			else if (validate(*(format + (i + 1))) == 1)
 			{
-				_putchar(*(format + i));
-				count++;
+				j += get_func(*(format + (i + 1)), arg);
+				i++;
 			}
 		}
-			i++;
+		else
+		{
+			_putchar(format[i]);
+			j++;
+		}
 	}
 	va_end(arg);
-	return (count);
+	return (j);
+}
+/**
+ * validate - validate type and convertion
+ * @s: to validate
+ * Return: 1 if found 0 if not
+ */
+int validate(char s)
+{
+		op_t ops[] = {
+		{'c', NULL},
+		{'s', NULL},
+		{'d', NULL},
+		{'i', NULL},
+		{'R', print_rot13},
+		{'r', print_r},
+		{0, NULL}
+	};
+
+	int i;
+
+	for (i = 0; ops[i].c != 0; i++)
+	{
+		if (ops[i].c == s)
+		{
+			return (1);
+		}
+	}
+	return (0);
 }
