@@ -1,30 +1,33 @@
 #include "main.h"
 /**
- * pick_function - check depending on separator
- * @s: char
- *@ap: argument of type va_list
- * Return: int
- */
-int pick_function(const char s, va_list ap)
+* get_func - return the correct function
+* @s: array to check
+* @ap: va_list
+* Return: return a function
+*/
+int get_func(char s, va_list ap)
 {
-	int i = 0, count = 0;
-	arr_of_p ch[] = {
-		{'c', p_char},
-		{'s', p_string},
-		{'%', p_percent},
-		{'d', p_int},
-		{'i', p_int},
-		{'b', p_binary},
-
+	op_t ops[] = {
+		{'c', print_c},
+		{'s', print_s},
+		{'d', print_d},
+		{'i', print_i},
+		{'R', print_rot13},
+		{'r', print_r},
+		{0, NULL}
 	};
-	while (ch[i].c != 0)
+
+	int i, count = 0;
+
+	for (i = 0; ops[i].c != 0; i++)
 	{
-		if (ch[i].c == s)
+		if (ops[i].c == s)
 		{
-			count = count + ch[i].fun(ap);
+			count += ops[i].f(ap);
 			return (count);
+
+
 		}
-		i++;
 	}
 	return (0);
 }
