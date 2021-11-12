@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdarg.h>
 /**
  * _printf - print all (printf reecreation)
  * @format: format specifier
